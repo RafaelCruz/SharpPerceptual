@@ -12,4 +12,6 @@ static void Main(string[] args) {
 }
 ````
 
+Don't forget that you have to have the Intel Perceptual SDK (and the 3d camera, of course) for this library to work!
+
 

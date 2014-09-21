@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>sharpperceptual</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/andrecarlucci/SharpPerceptual</projectUrl>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>realsense intel perceptual camera3d</tags>
+    <references>
+      <reference file="libpxcclr.dll" />
+      <reference file="sharpperceptual.dll" />
+    </references>
+  </metadata>
+  <files>
+        <file src="..\_libs\libpxcclr.dll" target="lib\net451" />
+    </files>
+</package>

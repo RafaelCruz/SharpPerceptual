@@ -2,6 +2,11 @@ SharpPerceptual
 ===============
 An easier way to use Intel RealSense SDK. Custom poses, gestures and much more.
 
+---
+### ** Nuget: Instal-Package SharpPerceptual**
+---
+
+## Sample:
 ```
 static void Main(string[] args) {
 	var cam = new Camera();

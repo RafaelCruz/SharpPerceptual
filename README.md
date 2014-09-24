@@ -3,7 +3,7 @@ SharpPerceptual
 An easier way to use Intel RealSense SDK. Custom poses, gestures and much more.
 
 ---
-### ** Nuget: Instal-Package SharpPerceptual**
+### Nuget: Instal-Package SharpPerceptual
 ---
 
 ## Sample:

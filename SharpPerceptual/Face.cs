@@ -1,3 +1,5 @@
 ﻿namespace SharpPerceptual {
-    public class Face : Item {}
+    public class Face : Item {
+        
+    }
 }

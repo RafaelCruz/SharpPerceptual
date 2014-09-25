@@ -41,12 +41,6 @@ namespace SharpPerceptual.Gestures {
 
         private void Evaluate() {
             Active = _flags.Values.All(x => x);
-            var sb =  new StringBuilder();
-            sb.AppendLine("CustomPose: "+Name);
-            foreach (var flag in _flags) {
-                sb.AppendLine("F: " + flag.Value);
-            }
-            Debug.WriteLine(sb);
         }
 
         public bool Active {

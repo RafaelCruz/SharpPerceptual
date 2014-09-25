@@ -3,6 +3,15 @@
 namespace SharpPerceptual.Gestures {
 
     public abstract class Movement {
+
+        public static MovementForward Forward(double distanceInCm, int millis) {
+            return new MovementForward(distanceInCm, TimeSpan.FromMilliseconds(millis));
+        }
+
+        public static MovementBackward Backward(double distanceInCm, int millis) {
+            return new MovementBackward(distanceInCm, TimeSpan.FromMilliseconds(millis));
+        }
+
         public double Distance { get; protected set; }
         public TimeSpan Window { get; protected set; }
 

@@ -114,12 +114,12 @@ namespace SharpPerceptual {
             var location = (PXCMFaceAnalysis.Detection)face.DynamicCast(PXCMFaceAnalysis.Detection.CUID);
             location.QueryData(faceId, out data);
             Face.IsVisible = data.rectangle.x > 0;
-            Debug.WriteLine("{0}|{1}|{2}|{3}",
-                data.rectangle.x,
-                data.rectangle.w,
-                data.rectangle.y,
-                data.rectangle.h
-                );
+            //Debug.WriteLine("{0}|{1}|{2}|{3}",
+            //    data.rectangle.x,
+            //    data.rectangle.w,
+            //    data.rectangle.y,
+            //    data.rectangle.h
+            //    );
             var ret = data.rectangle;
             //var x = ret.x + (ret.x + ret.w)/2;
             //var y = ret.y + (ret.y + ret.h)/2;
@@ -145,6 +145,9 @@ namespace SharpPerceptual {
         }
 
         private void TrackOpeness(FlexiblePart part, PXCMGesture.GeoNode geoNode) {
+            if (!part.IsVisible) {
+                return;
+            }
             if (geoNode.openness > 75) {
                 part.IsOpen = true;
             }
@@ -214,6 +217,24 @@ namespace SharpPerceptual {
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public override void OnAlert(ref PXCMGesture.Alert alert) {
+            base.OnAlert(ref alert);
+
+            if (alert.body == PXCMGesture.GeoNode.Label.LABEL_BODY_HAND_LEFT) {
+                Disable(LeftHand, alert);
+            }
+            else if (alert.body == PXCMGesture.GeoNode.Label.LABEL_BODY_HAND_RIGHT) {
+                Disable(RightHand, alert);
+            }
+            Debug.WriteLine("Alert: " + alert.label + " Body: " + alert.body);
+        }
+
+        private void Disable(FlexiblePart flexiblePart, PXCMGesture.Alert alert) {
+            if (alert.label == PXCMGesture.Alert.Label.LABEL_GEONODE_INACTIVE) {
+                flexiblePart.IsVisible = false;
             }
         }
 
